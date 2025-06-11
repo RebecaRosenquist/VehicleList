@@ -27,7 +27,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy => policy
-            .WithOrigins("http://localhost:3000") // byt ut mot din frontend-URL + port
+            .WithOrigins("http://localhost:3000") 
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
@@ -44,7 +44,7 @@ builder.Services.AddControllers()
 
 var app = builder.Build();
 
-app.UseCors("AllowFrontend"); // viktigt att detta kommer innan MapControllers()
+app.UseCors("AllowFrontend"); 
 
 app.MapControllers();
 

@@ -9,7 +9,7 @@ export default function CarList() {
   const [editCarId, setEditCarId] = useState(null);
   const [confirmationMessage, setConfirmationMessage] = useState("");
 
-  // Manuell lista för brands
+
   const brands = [
     { id: 1, name: "Volvo" },
     { id: 2, name: "BMW" },
@@ -23,7 +23,7 @@ export default function CarList() {
     { id: 10, name: "Mazda" },
   ];
 
-  // Manuell lista för colours
+
   const colours = [
     "Black",
     "White",
@@ -37,7 +37,7 @@ export default function CarList() {
     "Brown",
   ];
 
-  // Manuell lista för equipments med id och namn
+
   const manualEquipments = [
     { id: 1, name: "Air Conditioning" },
     { id: 2, name: "Leather Seats" },
@@ -51,7 +51,7 @@ export default function CarList() {
     { id: 10, name: "Parking Sensors" },
   ];
 
-  // Shared state for new or editing car
+
   const [newCar, setNewCar] = useState({
     vin: "",
     licensePlateNumber: "",
@@ -61,7 +61,7 @@ export default function CarList() {
     carEquipmentIds: [],
   });
 
-  // Fetch cars
+
   const fetchCars = async () => {
     try {
       const res = await fetch("http://localhost:5246/api/car");
@@ -82,22 +82,6 @@ export default function CarList() {
       prev.includes(id) ? prev.filter((rowId) => rowId !== id) : [...prev, id]
     );
   };
-
-//   const handleDelete = async (id) => {
-//     if (!window.confirm("Are you sure you want to delete this vehicle?"))
-//       return;
-
-//     try {
-//       await fetch(`http://localhost:5246/api/car/${id}`, {
-//         method: "DELETE",
-//       });
-//       setCars((prev) => prev.filter((car) => car.id !== id));
-//       setConfirmationMessage("Vehicle deleted");
-//       setTimeout(() => setConfirmationMessage(""), 3000);
-//     } catch (error) {
-//       console.error("Error deleting vehicle:", error);
-//     }
-//   };
 
 const handleDelete = async (id) => {
   const result = await Swal.fire({
@@ -121,7 +105,7 @@ const handleDelete = async (id) => {
   }
 };
 
-  // Start editing: populate form with car data
+
   const handleEdit = (car) => {
     setEditCarId(car.id);
     setNewCar({
@@ -134,8 +118,6 @@ const handleDelete = async (id) => {
     });
     setShowForm(true);
   };
-
-  // Cancel editing/new
   const cancelForm = () => {
     setShowForm(false);
     setEditCarId(null);
@@ -207,7 +189,6 @@ const handleDelete = async (id) => {
 
   return (
     <div className="container mt-4" style={{ position: "relative" }}>
-      {/* Confirmation message - absolutely positioned */}
       {confirmationMessage && (
         <div
           className="alert alert-success position-absolute"
@@ -445,7 +426,6 @@ const handleDelete = async (id) => {
                 <tr>
                   <td></td>
                   <td colSpan="6">
-                    {/* Extra info för små skärmar */}
                     <div
                       className="d-md-none mb-2"
                       style={{ display: "block" }}

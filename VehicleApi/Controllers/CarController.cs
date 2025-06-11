@@ -17,7 +17,7 @@ namespace VehicleApi.Controllers
             _context = context;
         }
 
-        // GET: api/car
+   
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CarDto>>> GetCars()
         {
@@ -30,7 +30,7 @@ namespace VehicleApi.Controllers
             return Ok(carDtos);
         }
 
-        // GET: api/car/5
+    
         [HttpGet("{id}")]
         public async Task<ActionResult<CarDto>> GetCar(int id)
         {
@@ -45,8 +45,6 @@ namespace VehicleApi.Controllers
             return MapCarToDto(car);
         }
 
-        // POST: api/car
-          // POST: api/car
         [HttpPost]
         public async Task<ActionResult<CarDto>> PostCar(CarCreateUpdateDto carDto)
         {
@@ -81,7 +79,7 @@ namespace VehicleApi.Controllers
         }
 
 
-        // PUT: api/car/5
+ 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCar(int id, CarCreateUpdateDto carDto)
         {
@@ -123,7 +121,7 @@ namespace VehicleApi.Controllers
             return NoContent();
         }
 
-        // DELETE: api/car/5
+    
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCar(int id)
         {
@@ -137,7 +135,7 @@ namespace VehicleApi.Controllers
             return NoContent();
         }
 
-        // 🔁 Gemensam DTO-mappare
+ 
         private CarDto MapCarToDto(Car car)
         {
             return new CarDto

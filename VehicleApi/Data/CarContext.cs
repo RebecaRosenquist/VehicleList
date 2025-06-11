@@ -17,7 +17,7 @@ namespace VehicleApi.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Relations
+         
             modelBuilder.Entity<Car>()
                 .HasOne(c => c.Brand)
                 .WithMany(b => b.Cars)
@@ -39,7 +39,7 @@ namespace VehicleApi.Data
                         );
                     });
 
-            // Seed Brands
+     
             modelBuilder.Entity<Brand>().HasData(
                 new Brand { Id = 1, Name = "Volvo" },
                 new Brand { Id = 2, Name = "Toyota" },
@@ -53,7 +53,7 @@ namespace VehicleApi.Data
                 new Brand { Id = 10, Name = "Hyundai" }
             );
 
-            // Seed CarEquipments
+         
             modelBuilder.Entity<CarEquipment>().HasData(
                 new CarEquipment { Id = 1, Name = "Air Conditioning" },
                 new CarEquipment { Id = 2, Name = "Leather Seats" },
@@ -67,7 +67,7 @@ namespace VehicleApi.Data
                 new CarEquipment { Id = 10, Name = "Parking Sensors" }
             );
 
-            // Seed Cars
+      
             modelBuilder.Entity<Car>().HasData(
                 new Car
                 {
